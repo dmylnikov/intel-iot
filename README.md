@@ -10,4 +10,4 @@ Our current project is **1ikealamp**, it's full description is in **Projects** s
 *I (George) have provided some initial strcuture of ut current project and gave my thoughts in the __Projects__ section Please, visit it.*
 
 ## Frontend
-*Guys, I've done a simple frontend for you. There is a simple static-static version with number of HTML pages and a sinple js-containing variant which uses common menu. You will not be able to run  the latter one without setting up the web server, but you may just open __1ikealamp/server/static/index.html__ and see everything work.
+*Guys, I've done a simple frontend for you. There is a simple static-static version with number of HTML pages and a sinple js-containing variant which uses common menu. You will not be able to run  the latter one without setting up the web server, but you may just open __[index.html](1ikealamp/Server/static/index.html)__ and see everything work.*
