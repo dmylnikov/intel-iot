@@ -1,0 +1,74 @@
+{
+  "project": {
+    "projectSettingsVersion": "3.0.0",
+    "currentBuildConfiguration": null,
+    "projectFiles": {},
+    "projectDirectories": {}
+  },
+  "editorTab": {
+    "currentEditorMode": 0
+  },
+  "iot-tab": {
+    "fileStatus": {
+      "icon.png": {
+        "previousModTime": 1477067259864,
+        "modified": 1477067259864,
+        "seen": true,
+        "name": "icon.png"
+      },
+      "main.js": {
+        "previousModTime": 1477067259864,
+        "modified": 1477067259864,
+        "seen": true,
+        "name": "main.js"
+      },
+      "package.json": {
+        "previousModTime": 1477067259864,
+        "modified": 1477067259864,
+        "seen": true,
+        "name": "package.json"
+      },
+      "README.md": {
+        "previousModTime": 1477067259864,
+        "modified": 1477067259864,
+        "seen": true,
+        "name": "README.md"
+      },
+      "read.xdk": {
+        "previousModTime": 1477067262156,
+        "modified": 1477067262156,
+        "seen": true,
+        "name": "read.xdk"
+      },
+      "read.xdke": {
+        "previousModTime": 1477067349348,
+        "modified": 1477067349348,
+        "seen": true,
+        "name": "read.xdke"
+      },
+      "xdk/project-info.json": {
+        "previousModTime": 1477067261512,
+        "modified": 1477067261512,
+        "seen": true,
+        "name": "xdk/project-info.json"
+      }
+    },
+    "boardFileStatus": {
+      "icon.png": {
+        "previousModTime": 1477068237126
+      },
+      "main.js": {
+        "previousModTime": 1477068237126
+      },
+      "package.json": {
+        "previousModTime": 1477068237126
+      },
+      "README.md": {
+        "previousModTime": 1477068237126
+      },
+      "xdk/project-info.json": {
+        "previousModTime": 1477068237126
+      }
+    }
+  }
+}
