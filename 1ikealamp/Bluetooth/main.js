@@ -27,6 +27,7 @@ Article: https://software.intel.com/en-us/creating-a-bluetooth-low-energy-app/
 */
 
 var led_characteristics = null;
+var connected = 0;
 var high = 'h';
 var low = 'l';
 var auto = 'a';
@@ -35,13 +36,14 @@ function send_to_genuino(state) {
     if (!led_characteristics)
         console.log('ERROR: Invoking send with no characteristic discovered.');
     else
-        characteristic.write(new Buffer(state), withoutResponse);
+    	if (connected)
+        	led_characteristics.write(new Buffer(state), withoutResponse = false);
+        else
+        	console.log('Not connected, can\'t proceed');
 }
 
 
 function setup_bt() {
-    var mraa = require('mraa'); 
-    var async = require('async');
     var noble = require('noble');
 
     console.log('Starting application.');
@@ -79,8 +81,12 @@ function setup_bt() {
 
             peripheral.on('disconnect', function() {
                     console.log('Disconnected. Attemping to reconnect in 200 ms...');
+                    connected = 0;
                     setTimeout(function() {peripheral.connect()}, 200);
             });
+
+            
+            peripheral.on('connect', function() {connected = 1});
 
             getcharacteristics(peripheral);
         }
@@ -106,3 +112,6 @@ function setup_bt() {
 
 exports.setup_bt = setup_bt;
 exports.send = send_to_genuino;
+exports.low = low;
+exports.high = high;
+exports.auto = auto;
