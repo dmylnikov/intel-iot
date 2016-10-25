@@ -33,13 +33,10 @@ var low = 'l';
 var auto = 'a';
 
 function send_to_genuino(state) {
-    if (!led_characteristics)
-        console.log('ERROR: Invoking send with no characteristic discovered.');
+    if (connected)
+        led_characteristics.write(new Buffer(state), withoutResponse = false);
     else
-    	if (connected)
-        	led_characteristics.write(new Buffer(state), withoutResponse = false);
-        else
-        	console.log('Not connected, can\'t proceed');
+        console.log('Not connected, can\'t proceed');
 }
 
 
@@ -80,13 +77,11 @@ function setup_bt() {
             noble.stopScanning();
 
             peripheral.on('disconnect', function() {
-                    console.log('Disconnected. Attemping to reconnect in 200 ms...');
+                    console.log('Disconnected. Attemping to reconnect in 500 ms...');
                     connected = 0;
-                    setTimeout(function() {peripheral.connect()}, 200);
+                    setTimeout(function() {getcharacteristics(peripheral)}, 500);
             });
 
-            
-            peripheral.on('connect', function() {connected = 1});
 
             getcharacteristics(peripheral);
         }
@@ -103,6 +98,7 @@ function setup_bt() {
                             services[0].discoverCharacteristics(characteristicsUUIDs, function(error, characteristics) {
                                     console.log('Found LED characteristic.');
                                     led_characteristics = characteristics[0];
+                                    connected = 1
                             });
                     });
             });
