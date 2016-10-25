@@ -12,6 +12,7 @@ int change_was = 0;
 int Light_value = 1023;
 int A_L_LED_C = 0;  // Automatic lighting start
 int valuePIN2 = 0;
+int ugranichnoe_lighting = 530;
 
 
 #include <CurieBLE.h>
@@ -21,9 +22,9 @@ int valuePIN2 = 0;
 //------------------------------------------------------------------------------
 //                              SERVER SENT CONSTANTS
 //------------------------------------------------------------------------------
-#define S_LOW 0
-#define S_HIGH 1
-#define S_AUTO -1
+#define S_LOW 'l'
+#define S_HIGH 'h'
+#define S_AUTO 'a'
 
 //------------------------------------------------------------------------------
 //                                  BT CONSTANTS
@@ -33,13 +34,13 @@ BLEPeripheral blePeripheral; // create peripheral instance
 BLEService ledService("19B10110-E8F2-537E-4F6C-D104768A1214"); // create service
 
 // create switch characteristic and allow remote device to read and write
-BLEIntCharacteristic ledCharacteristic("19B10111-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
+BLECharCharacteristic ledCharacteristic("19B10111-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 
 //------------------------------------------------------------------------------
 //                              MULTITASKING CONSTANTS
 //------------------------------------------------------------------------------
 unsigned long previousMillis = 0;        // will store last time 
-#define DELAY 1000
+#define DELAY 100
 
 //------------------------------------------------------------------------------
 //                                  EVENT HANDLERS
@@ -61,8 +62,8 @@ void switchCharacteristicWritten(BLECentral& central, BLECharacteristic& charact
   Serial.print("Characteristic event, written: ");
   
  
-  int _value = ledCharacteristic.value();
-  Serial.print(_value);
+  char _value = ledCharacteristic.value();
+  Serial.println(_value);
   switch(_value) {
     case S_HIGH: {
       switch_state(HIGH);
@@ -85,7 +86,7 @@ void switchCharacteristicWritten(BLECentral& central, BLECharacteristic& charact
 
 void setup_bt() {
   // set the local name peripheral advertises
-  blePeripheral.setLocalName("GenuinoLampConroller");
+  blePeripheral.setLocalName("GLC");
   // set the UUID for the service this peripheral advertises
   blePeripheral.setAdvertisedServiceUuid(ledService.uuid());
 
@@ -100,7 +101,7 @@ void setup_bt() {
   // assign event handlers for characteristic
   ledCharacteristic.setEventHandler(BLEWritten, switchCharacteristicWritten);
 // set an initial value for the characteristic
-  ledCharacteristic.setValue(0);
+  ledCharacteristic.setValue('l');
 
   // advertise the service
   blePeripheral.begin();
@@ -162,12 +163,13 @@ void switch_state (int work_Mode) {
       A_L_LED_C = 0; 
       LED_state = work_Mode;
     }
+    LED_control();
  }
 
 
 void lighting_LED_control () {
   Light_value = analogRead(A0);
-  if(Light_value > 500) LED_state = LOW;
+  if(Light_value < ugranichnoe_lighting ) LED_state = LOW;
   else                  LED_state = HIGH;
   LED_control();
 }
