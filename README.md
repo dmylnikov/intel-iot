@@ -8,4 +8,7 @@ Our ambitious project we are working over now:
 * Pours the cups
 * **Enjoy!**
 
+![Enjoy]
+(aux/tea.jpg)
+
 ### [Project page](https://github.com/dmylnikov/intel-iot/projects/3)
