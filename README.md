@@ -1,5 +1,11 @@
-# Intel Internet of Things MIPT
+# Intel (MIPT): Internet of Things
 
-## Let's start
+Our ambitious project we are working over now:
+## Smart Kettle
+* Fills the kettle with the water
+* Boils it
+* Brews the tea
+* Pours the cups
+* **Enjoy!**
 
-Our current project is **1ikealamp**, it's full description is in **[Projects](../../projects/1)** section of our repo.
+### [Project page](https://github.com/dmylnikov/intel-iot/projects/3)
