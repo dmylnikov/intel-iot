@@ -3,6 +3,11 @@
 Our ambitious project we are working over now:
 ## Smart Kettle
 
+![Enjoy]
+(aux/tea.jpg)
+
+### [Project page](https://github.com/dmylnikov/intel-iot/projects/3)
+
 ### Finally the kettle is expected to
 * Fill the kettle with the water
 * Boil it
@@ -15,7 +20,8 @@ Our ambitious project we are working over now:
 | [Heater](Smart_Kettle/Heater) | Conveyor | Tea dispenser | Teapot |
 |-------------------------------|----------|---------------|--------|
 
-### API:
+----
+# API:
 At the most simple variant the Smart Kettle has the API as following.
 **Output signals, expecting user's response:**
 
@@ -38,7 +44,4 @@ At the most simple variant the Smart Kettle has the API as following.
 4. Fill the cup.
 5. Do everything at once (`make a tea!`)
 
-![Enjoy]
-(aux/tea.jpg)
-
-### [Project page](https://github.com/dmylnikov/intel-iot/projects/3)
+----
