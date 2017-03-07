@@ -10,6 +10,11 @@ Our ambitious project we are working over now:
 * Pour the cups
 * **Enjoy!**
 
+### Project parts:
+
+| [Heater](Smart_Kettle/Heater) | Conveyor | Tea dispenser | Teapot |
+|-------------------------------|----------|---------------|--------|
+
 ### API:
 At the most simple variant the Smart Kettle has the API as following.
 **Output signals, expecting user's response:**
