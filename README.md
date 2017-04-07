@@ -3,8 +3,7 @@
 Our ambitious project we are working over now:
 # Smart Kettle
 
-![Enjoy]
-(aux/tea.jpg)
+![Enjoy](aux/tea.jpg)
 
 ### [Project page](https://github.com/dmylnikov/intel-iot/projects/3)
 
